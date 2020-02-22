@@ -125,3 +125,33 @@ print("Nb children", insurance.groupby("age").size())
 print("Extracting correlation matrix", insurance.corr().to_string())
 
 
+import matplotlib.pyplot as plt
+import pandas as pd
+import pytest
+from pandas.tests.test_downstream import df
+
+data = pd.read_csv("/Users/nevinmurad/Desktop/Pandas/MyProject_database.csv")
+
+#Database description
+print("Data colums", data.columns)
+print("Data info", data.info())
+print("Data index", data.index)
+print("Data describe", data.describe())
+
+#Basic Statistics
+print("EI min is", data["EI"].min())
+print("EI mean is", data["EI"].mean())
+print("EI max is", data["EI"].max())
+
+print("Nb accident 2017 is", data["Accident 2017"].sum())
+print("Nb accident 2017 is", data["Fatal accident 2017"].sum())
+
+print("Nb accident 2018 is", data["Accident 2018"].sum())
+print("Nb accident 2017 is", data["Fatal accident 2018"].sum())
+
+print("Nb of missing data per column", data.isnull().sum())
+
+
+#Correlation matrix
+print("Correlation matrix", data.corr().to_string())
+
