@@ -110,13 +110,17 @@ print("Print count per region", insurance["region"].value_counts())
 
 
 #How many insured people are children?
+#ANSWER: there is no people insured below 18 y/o so no children
 
+print("Nb children", insurance.groupby("age").size())
 
 #What do you expect to be the correlation between charges and age, bmi and children?
-#I would expect the correlation between charge and age to be strong as you pay more as you age
-#I would expect the correlation between bmi and children to low since having more or less children should not impact the bmi
+# I would expect that the correlation between charges and age to be strong because you will likely pay
+# more as you age. The correlation between bmi and children should be low since there is no link
+# between how many children you have and your BMI.
+# My assumptions were correct since the correlation between charges and age is 0.299 and only 0.0128
+# between bmi and children
 
-#Using the method corr(), check if your assumptions were correct
 
 print("Extracting correlation matrix", insurance.corr().to_string())
 
